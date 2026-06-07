@@ -3,10 +3,12 @@
 
 mod boot;
 mod drivers;
+mod kernel;
 
 use core::panic::PanicInfo;
 
 #[panic_handler]
-fn panic(_info: &PanicInfo) -> ! {
+fn panic(info: &PanicInfo) -> ! {
+    printk!("Kernel panic: {}\n", info);
     loop {}
 }
