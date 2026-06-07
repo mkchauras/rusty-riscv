@@ -12,6 +12,11 @@ SECTIONS
         *(.text._entry)
     }
 
+    .text.mtrap_vec : ALIGN(4) {
+	____mtrap_location____ = .;
+	KEEP(*(.text._mtrap_vec))
+    }
+
     /* General text/code section */
     .text : ALIGN(4) {
         *(.text)
